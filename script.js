@@ -93,7 +93,6 @@ function handleNumber(valueString) {
 function init() {
     document.querySelector('.calc-buttons')
         .addEventListener('click', function(event) {
-            console.log(event.target.innerText);
             buttonClick(event.target.innerText);
         })
 }
