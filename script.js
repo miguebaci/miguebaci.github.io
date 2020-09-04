@@ -68,7 +68,7 @@ function handleSymbol(symbol) {
                 return;
             }
             flushOperation(parseInt(buffer));
-            lastOperator = null;
+            lastOperator = '=';
             buffer = total;
             total = 0;
             break;
@@ -83,6 +83,10 @@ function handleSymbol(symbol) {
 }
 
 function handleNumber(valueString) {
+    if (lastOperator === '=') {
+        buffer = '0';
+        lastOperator = null;
+    }
     if (buffer === "0") {
         buffer = valueString;
     } else {
